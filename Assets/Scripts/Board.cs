@@ -47,10 +47,16 @@ public class Board : MonoBehaviour
         for (int i = 0; i < shapeManager.shapeCells.Length; i++)
         {
             Vector3Int tilePosition = shapeManager.shapeCells[i] + shapeManager.shapePosition;
-            Debug.Log("tile POsition -----------" + tilePosition 
-                + " shapeManager.shapePosition " + shapeManager.shapePosition);
-
             tilemap.SetTile(tilePosition, shapeManager.shapeData.tile);
+        }
+    }
+
+    public void UnsetShapeOnTile(ShapeManager shapeManager)
+    {
+        for (int i = 0; i < shapeManager.shapeCells.Length; i++)
+        {
+            Vector3Int tilePosition = shapeManager.shapeCells[i] + shapeManager.shapePosition;
+            tilemap.SetTile(tilePosition, null);
         }
     }
 
